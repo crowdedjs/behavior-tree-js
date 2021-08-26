@@ -8,7 +8,7 @@
         "emitDecoratorMetadata":  true,
         "noImplicitAny":          false,
         "noImplicitThis":         true,
-        "declaration":            true,
+        //"declaration":            true,
         "outDir":                 "./dist",
         "lib":                    [
             "es2017.object",
@@ -21,5 +21,5 @@
     },
     "include":         [
         "./src/**/*.ts"
-    ]
+, "src/BehaviorTreeBuilder.js", "src/Stack.js", "src/BehaviorTreeStatus.js", "src/index.js", "src/NodeEnumerator.js", "src/StackNode.js", "src/StateData.js", "src/Error/BehaviorTreeError.js", "src/Error/Errors.js", "src/Node/ActionNode.js", "src/Node/InverterNode.js", "src/Node/BehaviorTreeNodeInterface.js", "src/Node/ParallelNode.js", "src/Node/ParentBehaviorTreeNodeInterface.js", "src/Node/RepeatNode.js", "src/Node/SequenceNode.js", "src/Node/SelectorNode.js", "src/Node/UntilFailNode.js"    ]
 }

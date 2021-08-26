@@ -1,25 +1,24 @@
 import BehaviorTreeStatus from "../BehaviorTreeStatus.js";
 import BehaviorTreeError from "../Error/BehaviorTreeError.js";
 import Errors from "../Error/Errors.js";
-import StateData from "../StateData.js";
-import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface.js";
-import ParentBehaviorTreeNodeInterface from "./ParentBehaviorTreeNodeInterface.js";
 
 /**
  * Decorator node that inverts the success/failure of its child.
  *
  * @property {string} name - The name of the node
  */
-export default class InverterNode implements ParentBehaviorTreeNodeInterface {
+export default class InverterNode {
     /**
      * The child to be inverted
      */
-    private childNode?: BehaviorTreeNodeInterface;
+     childNode;
+     name
 
-    public constructor(public readonly name: string) {
+     constructor(  name) {
+         this.name = name;
     }
 
-    public async tick(state: StateData): Promise<BehaviorTreeStatus> {
+     async tick(state) {
         if (!this.childNode) {
             throw new BehaviorTreeError(Errors.INVERTER_NO_CHILDREN);
         }
@@ -34,7 +33,7 @@ export default class InverterNode implements ParentBehaviorTreeNodeInterface {
         return result;
     }
 
-    public addChild(child: BehaviorTreeNodeInterface): void {
+     addChild(child) {
         if (!!this.childNode) {
             throw new BehaviorTreeError(Errors.INVERTER_MULTIPLE_CHILDREN);
         }

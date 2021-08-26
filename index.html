@@ -12,8 +12,8 @@
     import {BehaviorTreeBuilder} from "./dist/index.js"; 
     console.log(new BehaviorTreeBuilder());
   </script> -->
-  <script src="bundle.js"></script>
-  <script>
+  <script type="module">
+    import * as fluentBehaviorTree from "./src/index.js";
     console.log(new fluentBehaviorTree.BehaviorTreeBuilder())
   </script>
 </body>

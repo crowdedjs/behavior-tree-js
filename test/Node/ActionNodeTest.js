@@ -1,4 +1,4 @@
-import test from "ava.js";
+import test from "ava";
 import StateData from "../../src/StateData.js";
 import ActionNode from "../../src/Node/ActionNode.js";
 import BehaviorTreeStatus from "../../src/BehaviorTreeStatus.js";

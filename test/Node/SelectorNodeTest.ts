@@ -1,7 +1,7 @@
-import test from "ava.js";
-import * as TypeMoq from "typemoq.js";
+import test from "ava";
+import * as TypeMoq from "typemoq";
 import StateData from "../../src/StateData.js";
-import BehaviorTreeNodeInterface from "../../src/Node/BehaviorTreeNodeInterface.js";
+import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface.js";
 import BehaviorTreeStatus from "../../src/BehaviorTreeStatus.js";
 import SelectorNode from "../../src/Node/SelectorNode.js";
 

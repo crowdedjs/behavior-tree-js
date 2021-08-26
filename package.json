@@ -9,7 +9,7 @@
         "url": "https://github.com/ricksteam/fluent-behavior-tree"
     },
     "scripts": {
-        "test": "rm -r test/dist; tsc -v && tsc -p test/ && ava -v",
+        "test": "tsc --allowJs -p ./ && tsc --allowJs -p test/ && ava -v",
         "compile": "tsc -p ./ && npm run rollup",
         "rollup": "npx rollup ./dist/index.js --file bundle.js --format es --name fluentBehaviorTree",
         "lint": "tslint -c tslint.json 'src/**/*.ts' --exclude 'src/**/*.d.ts' --fix",
@@ -36,6 +36,5 @@
         "source": [
             "dist/**/*.js"
         ]
-    },
-    "type": "module"
+    }
 }

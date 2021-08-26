@@ -1,13 +1,13 @@
-import test from "ava.js";
-import * as TypeMoq from "typemoq.js";
+import test from "ava";
+import * as TypeMoq from "typemoq";
 import StateData from "../../src/StateData.js";
 import InverterNode from "../../src/Node/InverterNode.js";
-import BehaviorTreeNodeInterface from "../../src/Node/BehaviorTreeNodeInterface.js";
+import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface.js";
 import BehaviorTreeStatus from "../../src/BehaviorTreeStatus.js";
 import BehaviorTreeError from "../../src/Error/BehaviorTreeError.js";
 import Errors from "../../src/Error/Errors.js";
 
-let testObject: InverterNode;
+let testObject;
 test.beforeEach(() => {
     testObject = new InverterNode("some-node");
 });
@@ -65,9 +65,9 @@ test("pass through running of child node", async (assert) => {
 });
 
 test("adding more than a single child throws exception", async (assert) => {
-    testObject.addChild(TypeMoq.Mock.ofType<BehaviorTreeNodeInterface>() as any);
+    testObject.addChild(TypeMoq.Mock.ofType<BehaviorTreeNodeInterface>());
     const error = assert.throws(
-        () => testObject.addChild(TypeMoq.Mock.ofType<BehaviorTreeNodeInterface>() as any),
+        () => testObject.addChild(TypeMoq.Mock.ofType<BehaviorTreeNodeInterface>()),
         BehaviorTreeError,
     );
     assert.is(error.message, Errors.INVERTER_MULTIPLE_CHILDREN);

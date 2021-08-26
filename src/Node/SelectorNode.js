@@ -1,35 +1,36 @@
 import BehaviorTreeStatus from "../BehaviorTreeStatus.js";
 import NodeEnumerator from "../NodeEnumerator.js";
-import StateData from "../StateData.js";
-import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface.js";
-import ParentBehaviorTreeNodeInterface from "./ParentBehaviorTreeNodeInterface.js";
 
 /**
  * Selects the first node that succeeds. Tries successive nodes until it finds one that doesn't fail.
  *
  * @property {string} name - The name of the node.
  */
-export default class SelectorNode implements ParentBehaviorTreeNodeInterface {
+export default class SelectorNode  {
     /**
      * List of child nodes.
      *
      * @type {BehaviorTreeNodeInterface[]}
      */
-    private children: BehaviorTreeNodeInterface[] = [];
+     children= [];
 
     /**
      * Enumerator to keep state
      */
-    private enumerator?: NodeEnumerator;
+     enumerator;
+     name;
+     keepState;
 
-    public constructor(public readonly name: string, private readonly keepState: boolean = false) {
+     constructor(  name,   keepState = false) {
+         this.name = name;
+         this.keepState = keepState;
     }
 
-    public init(): void {
+     init() {
         this.enumerator = new NodeEnumerator(this.children);
     }
 
-    public async tick(state: StateData): Promise<BehaviorTreeStatus> {
+     async tick(state){
         if (!this.enumerator || !this.keepState) {
             this.init();
         }
@@ -54,7 +55,7 @@ export default class SelectorNode implements ParentBehaviorTreeNodeInterface {
         return BehaviorTreeStatus.Failure;
     }
 
-    public addChild(child: BehaviorTreeNodeInterface): void {
+     addChild(child) {
         this.children.push(child);
     }
 }

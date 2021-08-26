@@ -2,27 +2,27 @@
 // See MIT license at https://github.com/ts-data/stack/blob/master/LICENSE
 import Node from "./StackNode.js";
 
-export default class Stack<TData> {
+export default class Stack {
 
-  private _topNode: Node<TData> = undefined;
-  private _count: number = 0;
+  _topNode = undefined;
+  _count = 0;
 
-  public count(): number {
+  count() {
       return this._count;
   }
 
-  public isEmpty(): boolean {
+  isEmpty() {
       return this._topNode === undefined;
   }
 
-  public push(value: TData): void {
+  push(value) {
       // create a new Node and add it to the top
-      const node = new Node<TData>(value, this._topNode);
+      const node = new Node(value, this._topNode);
       this._topNode = node;
       this._count++;
   }
 
-  public pop(): TData {
+  pop() {
       // remove the top node from the stack.
       // the node at the top now is the one before it
       const poppedNode = this._topNode;
@@ -31,7 +31,7 @@ export default class Stack<TData> {
       return poppedNode.data;
   }
 
-  public peek(): TData {
+  peek() {
       return this._topNode.data;
   }
 

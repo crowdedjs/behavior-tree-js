@@ -8,7 +8,7 @@
         "emitDecoratorMetadata":  true,
         "noImplicitAny":          false,
         "noImplicitThis":         true,
-        "declaration":            true,
+        //"declaration":            true,
         "outDir":                 "./dist",
         "lib":                    [
             "es2017.object",
@@ -21,5 +21,5 @@
     },
     "include":         [
         "./**/*.ts"
-    ]
+, "BehaviorTreeBuilderTest.js", "Node/ActionNodeTest.js", "Node/InverterNodeTest.ts"    ]
 }

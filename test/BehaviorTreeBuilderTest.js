@@ -1,4 +1,4 @@
-import test from "ava.js";
+import test from "ava";
 import BehaviorTreeBuilder from "../src/BehaviorTreeBuilder.js";
 import BehaviorTreeError from "../src/Error/BehaviorTreeError.js";
 import BehaviorTreeStatus from "../src/BehaviorTreeStatus.js";
@@ -9,9 +9,11 @@ import ParallelNode from "../src/Node/ParallelNode.js";
 import SelectorNode from "../src/Node/SelectorNode.js";
 import Errors from "../src/Error/Errors.js";
 
-let testObject: BehaviorTreeBuilder;
+//let BehaviorTreeBuilder;
 
-function init(): void {
+let testObject;
+
+function init() {
     testObject = new BehaviorTreeBuilder();
 }
 

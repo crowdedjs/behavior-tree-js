@@ -1,19 +1,18 @@
-import BehaviorTreeNodeInterface from "./Node/BehaviorTreeNodeInterface.js";
 
-export default class NodeEnumerator implements Iterable<BehaviorTreeNodeInterface> {
-    public currentIndex: number = 0;
+export default class NodeEnumerator {
+     currentIndex = 0;
 
-    public get current(): BehaviorTreeNodeInterface {
+     get current() {
         return this.nodes[this.currentIndex];
     }
 
-    public constructor(public nodes: BehaviorTreeNodeInterface[]) {
+     constructor( nodes) {
         this.nodes = nodes;
     }
 
-    public [Symbol.iterator](): Iterator<BehaviorTreeNodeInterface> {
+     [Symbol.iterator](){
         return {
-            next: (): IteratorResult<BehaviorTreeNodeInterface> => {
+            next: ()=> {
                 let result;
 
                 if (this.currentIndex < this.nodes.length) {
@@ -28,7 +27,7 @@ export default class NodeEnumerator implements Iterable<BehaviorTreeNodeInterfac
         };
     }
 
-    public next(): boolean {
+     next() {
         if (this.hasNext()) {
             this.currentIndex++;
 
@@ -38,11 +37,11 @@ export default class NodeEnumerator implements Iterable<BehaviorTreeNodeInterfac
         return false;
     }
 
-    public hasNext(): boolean {
+     hasNext() {
         return !!this.nodes[this.currentIndex + 1];
     }
 
-    public reset(): void {
+     reset() {
         this.currentIndex = 0;
     }
 }
